@@ -1,0 +1,104 @@
+﻿AppType=JavaFX
+Build1=Default,b4j.adashboard,V1
+File1=5607654.jpg
+File10=NeZha.jpg
+File11=PanelMini.bjl
+File12=PanelStatic.bjl
+File2=Crysta.ttf
+File3=Dashboard.bjl
+File4=Form1.bjl
+File5=Form2.bjl
+File6=icon.png
+File7=LeftDrawer.bjl
+File8=MainPanel.bjl
+File9=MiniItem.bjl
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Layouts
+FileGroup12=Layouts
+FileGroup2=Default Group
+FileGroup3=Layouts\Forms
+FileGroup4=Layouts\Forms
+FileGroup5=Layouts\Forms
+FileGroup6=Assets\icons
+FileGroup7=Layouts
+FileGroup8=Layouts
+FileGroup9=Layouts
+Group=Default Group
+Library1=b4xdrawer
+Library2=b4xpages
+Library3=cssutils
+Library4=frostedglass (1.11)
+Library5=jcore
+Library6=jfx
+Library7=jsd_xui_view3d
+Library8=xui views
+Module1=B4XMainPage
+Module2=CircularProgressBar
+Module3=Form1
+Module4=Form2
+Module5=Gauge
+NumberOfFiles=12
+NumberOfLibraries=8
+NumberOfModules=5
+Version=10.2
+@EndOfDesignText@
+' Name		: A B4X Dashboard App (B4XPages project template)
+' Version	: 1.00
+#Region Project Attributes 
+	#MainFormWidth: -1
+	#MainFormHeight: -1 
+#End Region
+#Region Package Property
+	#PackagerProperty: ExeName = Dashboard
+#End Region
+#Region Additional Jars
+'	#AdditionalJar: sqlite-jdbc-3.39.3.0
+#End Region
+Sub Process_Globals
+	Private FX 			As JFX
+	Private MainForm 	As Form
+	'Public DB 			As SQL
+	'Public DataFolder 	As String
+	'Public DataFile 	As String = "Data.db"
+	Public Version 		As String = "1.00"
+End Sub
+
+Sub AppStart (MainForm1 As Form, Args() As String)
+	MainForm = MainForm1
+	'MainForm.SetFormStyle("TRANSPARENT")
+	MainForm.SetFormStyle("UNDECORATED")
+	MainForm.WindowLeft = 0
+	MainForm.WindowTop = 0
+	MainForm.WindowWidth = FX.PrimaryScreen.MaxX - FX.PrimaryScreen.MinX
+	MainForm.WindowHeight = FX.PrimaryScreen.MaxY - FX.PrimaryScreen.MinY
+	MainForm.BackColor = FX.Colors.ARGB(0, 128, 128, 128)
+	MainForm.Icon = FX.LoadImage(File.DirAssets, "icon.png")
+	CSSUtils.SetBackgroundColor(MainForm.RootPane, FX.Colors.Transparent)
+	MainForm.Show
+	Dim PagesManager As B4XPagesManager
+	PagesManager.Initialize(MainForm)
+End Sub
+
+'Template version: B4J-1.0
+#Region Delegates
+Sub MainForm_FocusChanged (HasFocus As Boolean)
+	B4XPages.Delegate.MainForm_FocusChanged(HasFocus)
+End Sub
+
+Sub MainForm_Resize (Width As Double, Height As Double)
+	B4XPages.Delegate.MainForm_Resize(Width, Height)
+End Sub
+
+Sub MainForm_Closed
+	B4XPages.Delegate.MainForm_Closed
+End Sub
+
+Sub MainForm_CloseRequest (EventData As Event)
+	B4XPages.Delegate.MainForm_CloseRequest(EventData)
+End Sub
+
+Public Sub MainForm_IconifiedChanged (Iconified As Boolean)
+	B4XPages.Delegate.MainForm_IconifiedChanged(Iconified)
+End Sub
+#End Region
